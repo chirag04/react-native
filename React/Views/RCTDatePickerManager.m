@@ -20,7 +20,7 @@ RCT_ENUM_CONVERTER(UIDatePickerMode, (@{
   @"time": @(UIDatePickerModeTime),
   @"date": @(UIDatePickerModeDate),
   @"datetime": @(UIDatePickerModeDateAndTime),
-  @"countdown": @(UIDatePickerModeCountDownTimer), // not supported yet
+  @"countdown": @(UIDatePickerModeCountDownTimer),
 }), UIDatePickerModeTime, integerValue)
 
 @end
