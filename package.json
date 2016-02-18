@@ -21,6 +21,17 @@
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
+    "haste": {
+      "defaultPlatform": "ios",
+      "providesModuleNodeModules": [
+        "fbjs",
+        "react",
+        "react-native",
+        "parse",
+        "react-transform-hmr"
+      ],
+      "platforms": ["ios", "android"]
+    },
     "modulePathIgnorePatterns": [
       "/node_modules/(?!react|fbjs|react-native|parse|react-transform-hmr|core-js|promise)/",
       "node_modules/react/lib/React.js",
@@ -76,13 +87,15 @@
     "unmockedModulePathPatterns": [
       "promise",
       "source-map",
-      "fbjs"
+      "fbjs",
+      "fast-path"
     ]
   },
   "main": "Libraries/react-native/react-native.js",
   "files": [
     "React",
     "React.podspec",
+    "ReactAndroid",
     "android",
     "Libraries",
     "packager",
@@ -94,7 +107,6 @@
     "README.md",
     "jestSupport",
     ".flowconfig",
-    "npm-shrinkwrap.json"
   ],
   "scripts": {
     "test": "NODE_ENV=test jest",
@@ -123,12 +135,14 @@
     "connect": "^2.8.3",
     "debug": "^2.2.0",
     "event-target-shim": "^1.0.5",
+    "fast-path": "^1.1.0",
     "fbjs": "^0.7.2",
     "fbjs-scripts": "^0.4.0",
     "graceful-fs": "^4.1.2",
     "image-size": "^0.3.5",
     "immutable": "^3.7.5",
     "joi": "^6.6.1",
+    "json-stable-stringify": "^1.0.1",
     "json5": "^0.4.0",
     "jstransform": "^11.0.3",
     "mkdirp": "^0.5.1",
@@ -157,7 +171,7 @@
     "yeoman-generator": "^0.20.3"
   },
   "devDependencies": {
-    "jest-cli": "0.8.2",
+    "jest-cli": "0.9.0-fb1",
     "babel-eslint": "4.1.4",
     "eslint": "1.3.1",
     "eslint-plugin-react": "3.3.1",

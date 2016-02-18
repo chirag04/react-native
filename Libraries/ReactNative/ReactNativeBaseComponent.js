@@ -115,7 +115,11 @@ ReactNativeBaseComponent.Mixin = {
     this._currentElement = nextElement;
 
     if (__DEV__) {
-      deepFreezeAndThrowOnMutationInDev(this._currentElement.props);
+      for (var key in this.viewConfig.validAttributes) {
+        if (nextElement.props.hasOwnProperty(key)) {
+          deepFreezeAndThrowOnMutationInDev(nextElement.props[key]);
+        }
+      }
     }
 
     var updatePayload = ReactNativeAttributePayload.diff(
@@ -181,7 +185,11 @@ ReactNativeBaseComponent.Mixin = {
     var tag = ReactNativeTagHandles.allocateTag();
 
     if (__DEV__) {
-      deepFreezeAndThrowOnMutationInDev(this._currentElement.props);
+      for (var key in this.viewConfig.validAttributes) {
+        if (this._currentElement.props.hasOwnProperty(key)) {
+          deepFreezeAndThrowOnMutationInDev(this._currentElement.props[key]);
+        }
+      }
     }
 
     var updatePayload = ReactNativeAttributePayload.create(
